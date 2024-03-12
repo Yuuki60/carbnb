@@ -1,0 +1,11 @@
+<%= simple_form_for [@car, @order] do |f| %>
+  <div class="row">
+    <div class="col-md-6">
+      <%= f.input :start_date, as: :date %>
+    </div>
+    <div class="col-md-6">
+      <%= f.input :end_date, as: :date %>
+    </div>
+  </div>
+  <%= f.button :submit, class: "btn btn-primary" %>
+<% end %>

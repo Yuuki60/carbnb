@@ -1,6 +1,7 @@
-<%# du html %>
-N'impporte quoi
-<div class="Buttons">
-  <%= link_to "Back", cars_path, class: 'btn btn-primary' %>
-  <%= link_to "Delete the car", car_path, class: 'btn btn-primary', data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>
+<div class="mt-5">
+  <%= @car.description %>
+  <div class="Buttons mt-4">
+    <%= link_to "Delete the car", car_path, class: 'btn btn-danger', data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>
+    <%= link_to "Book the car", new_car_order_path(@car), class: 'btn btn-primary' %>
+  </div>
 </div>

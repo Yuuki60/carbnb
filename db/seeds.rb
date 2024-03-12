@@ -14,7 +14,7 @@ Order.destroy_all
 User.destroy_all
 Car.destroy_all
 
-test_user = User.create!(
+test_user = User.create(
   email: 'test@test.com',
   password: '123456'
 )
@@ -41,8 +41,8 @@ cars = Car.all
 users = User.all
 10.times do
   Order.create(
-    user_id: users.sample.id,
-    car_id: cars.sample.id,
+    user: users.sample,
+    car: cars.sample,
     start_date: Faker::Date.backward,
     end_date: Faker::Date.forward,
     state: rand(0..2)

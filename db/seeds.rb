@@ -29,14 +29,15 @@ test_user = User.create(
   )
 end
 
-Car.create(name: "Lamborghini", description: "super voiture", price_per_day: 10_000)
-Car.create(name: "Clio", description: "plus ou moins super voiture", price_per_day: 800)
-Car.create(name: "Megane", description: "voiture moyenne", price_per_day: 600)
-Car.create(name: "Avantador", description: "voiture comme ci comme ça", price_per_day: 400)
-Car.create(name: "Fiat", description: "voiture si on n'a pas le choix", price_per_day: 200)
+users = User.all
+
+Car.create(name: "Lamborghini", description: "super voiture", price_per_day: 10_000, user: users.sample)
+Car.create(name: "Clio", description: "plus ou moins super voiture", price_per_day: 800, user: users.sample)
+Car.create(name: "Megane", description: "voiture moyenne", price_per_day: 600, user: users.sample)
+Car.create(name: "Avantador", description: "voiture comme ci comme ça", price_per_day: 400, user: users.sample)
+Car.create(name: "Fiat", description: "voiture si on n'a pas le choix", price_per_day: 200, user: users.sample)
 
 cars = Car.all
-users = User.all
 10.times do
   Order.create(
     user: users.sample,

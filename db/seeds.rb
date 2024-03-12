@@ -1,3 +1,5 @@
+require 'faker'
+
 # This file should ensure the existence of records required to run the application in every environment (production,
 # development, test). The code here should be idempotent so that it can be executed at any point in every environment.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
@@ -7,17 +9,41 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+Order.destroy_all
 User.destroy_all
 Car.destroy_all
 
-user = User.create!(
+test_user = User.create!(
   email: 'test@test.com',
   password: '123456'
 )
-user.confirm
+test_user.confirm
 
-Car.create(name: "Lamborghini", description: "super voiture", price_per_day: 10000)
+10.times do
+  user = User.create(
+    email: Faker::Internet.email,
+    password: 'motdepasse',
+    firstname: Faker::Name.first_name,
+    lastname: Faker::Name.last_name
+  )
+  user.confirm
+end
+
+Car.create(name: "Lamborghini", description: "super voiture", price_per_day: 10_000)
 Car.create(name: "Clio", description: "plus ou moins super voiture", price_per_day: 800)
 Car.create(name: "Megane", description: "voiture moyenne", price_per_day: 600)
 Car.create(name: "Avantador", description: "voiture comme ci comme ça", price_per_day: 400)
 Car.create(name: "Fiat", description: "voiture si on n'a pas le choix", price_per_day: 200)
+
+cars = Car.all
+users = User.all
+10.times do
+  Order.create(
+    user_id: users.sample.id,
+    car_id: cars.sample.id,
+    start_date: Faker::Date.backward,
+    end_date: Faker::Date.forward,
+    state: 0
+  )
+end

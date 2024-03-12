@@ -18,7 +18,6 @@ test_user = User.create(
   email: 'test@test.com',
   password: '123456'
 )
-test_user.confirm
 
 
 10.times do
@@ -28,7 +27,6 @@ test_user.confirm
     firstname: Faker::Name.first_name,
     lastname: Faker::Name.last_name
   )
-  user.confirm
 end
 
 Car.create(name: "Lamborghini", description: "super voiture", price_per_day: 10_000)

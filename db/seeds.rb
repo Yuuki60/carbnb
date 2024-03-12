@@ -7,6 +7,15 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+User.destroy_all
+Car.destroy_all
+
+user = User.create!(
+  email: 'test@test.com',
+  password: '123456'
+)
+user.confirm
+
 Car.create(name: "Lamborghini", description: "super voiture", price_per_day: 10000)
 Car.create(name: "Clio", description: "plus ou moins super voiture", price_per_day: 800)
 Car.create(name: "Megane", description: "voiture moyenne", price_per_day: 600)

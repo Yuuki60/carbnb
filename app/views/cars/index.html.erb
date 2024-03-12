@@ -8,6 +8,7 @@
             <div>
               <h2><%= car.name %></h2>
               <p><%= car.description %></p>
+              <%= link_to "See more details", car_path(car), class: "btn btn-primary" %>
             </div>
             <h2 class="card-trip-pricing"> $ <%= car.price_per_day %></h2>
           </div>
@@ -15,4 +16,5 @@
       </div>
     <% end %>
   </div>
+  <%= link_to "Add a new car", new_car_path %>
 </div>

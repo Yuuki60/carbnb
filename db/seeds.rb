@@ -16,8 +16,8 @@ user = User.create!(
 )
 user.confirm
 
-Car.create(name: "Lamborghini", description: "super voiture", price_per_day: 10000)
-Car.create(name: "Clio", description: "plus ou moins super voiture", price_per_day: 800)
-Car.create(name: "Megane", description: "voiture moyenne", price_per_day: 600)
-Car.create(name: "Avantador", description: "voiture comme ci comme ça", price_per_day: 400)
-Car.create(name: "Fiat", description: "voiture si on n'a pas le choix", price_per_day: 200)
+Car.create(name: "Lamborghini", description: "super voiture", price_per_day: 10000, user: user)
+Car.create(name: "Clio", description: "plus ou moins super voiture", price_per_day: 800, user: user)
+Car.create(name: "Megane", description: "voiture moyenne", price_per_day: 600, user: user)
+Car.create(name: "Avantador", description: "voiture comme ci comme ça", price_per_day: 400, user: user)
+Car.create(name: "Fiat", description: "voiture si on n'a pas le choix", price_per_day: 200, user: user)

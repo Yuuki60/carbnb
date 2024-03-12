@@ -1,0 +1,9 @@
+<% if order.state == 1 %>
+  <% bgColor = 'success' %>
+<% elsif order.state == 2 %>
+  <% bgColor = "danger" %>
+<% else %>
+  <% bgColor = "secondary" %> 
+<% end %>
+
+<p class="badge bg-<%= bgColor %> rounded-3"><%= order.state_label %></p>

@@ -44,6 +44,6 @@ users = User.all
     car_id: cars.sample.id,
     start_date: Faker::Date.backward,
     end_date: Faker::Date.forward,
-    state: 0
+    state: rand(0..2)
   )
 end

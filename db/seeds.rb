@@ -24,8 +24,8 @@ test_user = User.create(
   user = User.create(
     email: Faker::Internet.email,
     password: 'motdepasse',
-    firstname: Faker::Name.first_name,
-    lastname: Faker::Name.last_name
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name
   )
 end
 

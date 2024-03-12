@@ -20,6 +20,7 @@ test_user = User.create!(
 )
 test_user.confirm
 
+
 10.times do
   user = User.create(
     email: Faker::Internet.email,

@@ -11,11 +11,11 @@ class Order < ApplicationRecord
   def state_label
     case state
     when 0
-      "En attente"
+      "Pending"
     when 1
-      "Validé"
+      "Accepted"
     when 2
-      "Refusé"
+      "Declined"
     end
   end
 end

@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
   def index
-    @orders = Order.all
+    @orders = Order.where(user: current_user)
   end
 end

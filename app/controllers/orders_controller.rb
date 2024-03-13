@@ -5,11 +5,6 @@ class OrdersController < ApplicationController
     @orders = Order.where(user: current_user)
   end
 
-  def new
-    @order = Order.new
-    @car = Car.find(params[:car_id])
-  end
-
   def create
     @order = Order.new(order_params)
     @order.user = current_user

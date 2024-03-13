@@ -3,7 +3,7 @@
     <% @cars.each do |car| %>
       <div class="col-12 col-lg-4">
         <div class="card-trip">
-          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+          <%= cl_image_tag(car.new_image.key, class: "w-100") %>
           <div class="card-trip-infos">
             <div>
               <h2><%= car.name %></h2>

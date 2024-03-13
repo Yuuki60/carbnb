@@ -1,60 +1,62 @@
+<div class="container">
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, multipart: true }) do |f| %>
-  <div class="row mx-3 mt-4">
-    <div class="col-md-4">
-      <div class="mx-2 p-4 bg-white">
-        <div class="user-info">
-          <h2><%= current_user.first_name %> <%= current_user.last_name %></h2>
-          <p>Member Since: <%= current_user.created_at.strftime("%B %Y") %></p>
-          <% if current_user.avatar.attached? %>
-            <%= cl_image_tag(current_user.avatar.key, width: 300, height: 300, crop: :fill, gravity: :face, class: "w-100 h-auto rounded-circle my-4") %>
-          <% else %>
-            <%= image_tag 'avatar.png', width: 300 %>
-          <% end %>
-          <div class="input-field">
-            <%= f.file_field :avatar %>
+    <div class="row mx-3 mt-4">
+      <div class="col-md-4">
+        <div class="mx-2 p-4 bg-white">
+          <div class="user-info">
+            <h2><%= current_user.first_name %> <%= current_user.last_name %></h2>
+            <p>Member Since: <%= current_user.created_at.strftime("%B %Y") %></p>
+            <% if current_user.avatar.attached? %>
+              <%= cl_image_tag(current_user.avatar.key, width: 300, height: 300, crop: :fill, gravity: :face, class: "w-100 h-auto rounded-circle my-4") %>
+            <% else %>
+              <%= image_tag 'avatar.png', width: 300 %>
+            <% end %>
+            <div class="input-field">
+              <%= f.file_field :avatar %>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="col-md-8 ">
-      <div class="mx-2 p-4 bg-white">
-        <h2>Edit Profile</h2>
-        <%= f.error_notification %>
-        <div class="row">
-          <div class="col-md-6">
-            <%= f.input :first_name, autofocus: true %>
+      <div class="col-md-8 ">
+        <div class="mx-2 p-4 bg-white">
+          <h2>Edit Profile</h2>
+          <%= f.error_notification %>
+          <div class="row">
+            <div class="col-md-6">
+              <%= f.input :first_name, autofocus: true %>
+            </div>
+            <div class="col-md-6">
+              <%= f.input :last_name %>
+            </div>
           </div>
-          <div class="col-md-6">
-            <%= f.input :last_name %>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6">
-            <%= f.input :password,
+          <div class="row">
+            <div class="col-md-6">
+              <%= f.input :password,
                     hint: "leave it blank if you don't want to change it",
                     required: false,
                     input_html: { autocomplete: "new-password" } %>
-          </div>
-          <div class="col-md-6">
-            <%= f.input :password_confirmation,
+            </div>
+            <div class="col-md-6">
+              <%= f.input :password_confirmation,
                     required: false,
                     input_html: { autocomplete: "new-password" } %>
+            </div>
           </div>
-        </div>
-        <%= f.input :email, required: true, autofocus: true %>
-        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-          <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-        <% end %>
-        <%= f.input :current_password,
+          <%= f.input :email, required: true, autofocus: true %>
+          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+            <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+          <% end %>
+          <%= f.input :current_password,
                 hint: "we need your current password to confirm your changes",
                 required: true,
                 input_html: { autocomplete: "current-password" } %>
-        <%= f.button :submit, "Update Profile Info", class: 'btn btn-primary' %>
-        <div class="mt-4">
-          <h4>Delete my account</h4>
-          <%= button_to "Delete my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'btn btn-danger btn-sm text-white' %>
+          <%= f.button :submit, "Update Profile Info", class: 'btn btn-primary' %>
+          <div class="mt-4">
+            <h4>Delete my account</h4>
+            <%= button_to "Delete my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'btn btn-danger btn-sm text-white' %>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
+</div>

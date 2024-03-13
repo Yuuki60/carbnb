@@ -1,11 +1,18 @@
 <%= simple_form_for [@car, @order] do |f| %>
   <div class="row">
-    <div class="col-md-6">
-      <%= f.input :start_date, as: :date %>
+    <div class="col-md-12">
+      <%= f.input :start_date,
+            as: :string,
+            label: false,
+            input_html: { data: { controller: "datepicker" }, id: "start_date", class: 'd-none text-center mx-auto' } %>
     </div>
     <div class="col-md-6">
-      <%= f.input :end_date, as: :date %>
+      <%= f.input :end_date,
+            as: :hidden,
+            input_html: { data: { controller: "datepicker" }, id: "end_date"} %>
     </div>
   </div>
-  <%= f.button :submit, class: "btn btn-primary" %>
+  <div class="d-flex justify-content-center">
+    <%= f.button :submit, "Book the car",  class: "btn btn-primary px-4 rounded-3" %>
+  </div>
 <% end %>

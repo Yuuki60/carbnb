@@ -1,7 +1,10 @@
+<div class= "container bg-white mt-5 p-4 border formulaire">
 <%= simple_form_for @car do |f| %>
   <%= f.input :name %>
   <%= f.input :description %>
   <%= f.input :text %>
   <%= f.input :price_per_day %>
-  <%= f.submit %>
+  <%= f.input :new_image, as: :file %>
+  <%= f.submit class:"btn btn-primary" %>
 <% end %>
+</div>

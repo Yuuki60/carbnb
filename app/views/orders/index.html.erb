@@ -1,26 +1,28 @@
-<div class="mt-4">
-  <h2>Rented cars</h2>
-  <ul class="list-group">
-    <% @orders.each do |order| %>
-      <li class="list-group-item d-flex align-items-center justify-content-between py-3 my-2 bg-white">
-        <p>
-          <%= order.car.name %>
-          <small>From <%= order.start_date.strftime('%m/%d/%y') %> to <%= order.end_date.strftime('%m/%d/%y') %></small>
-        </p>
-        <%= render "state-badge", order: order %>
-      </li>
-    <% end %>
-  </ul>
-  <h2 class="mt-4">Reservations for your cars</h2>
-  <ul class="list-group">
-    <% @orders.each do |order| %>
-      <li class="list-group-item d-flex align-items-center justify-content-between py-3 my-2 bg-white">
-        <p>
-          <%= order.car.name %>
-          <small>From <%= order.start_date.strftime('%m/%d/%y') %> to <%= order.end_date.strftime('%m/%d/%y') %></small>
-        </p>
-        <%= render "state-badge", order: order %>
-      </li>
-    <% end %>
-  </ul>
+<div class="container">
+  <div class="mt-4">
+    <h2>Rented cars</h2>
+    <ul class="list-group">
+      <% @orders.each do |order| %>
+        <li class="list-group-item d-flex align-items-center justify-content-between py-3 my-2 bg-white">
+          <p>
+            <%= order.car.name %>
+            <small>From <%= order.start_date.strftime('%m/%d/%y') %> to <%= order.end_date.strftime('%m/%d/%y') %></small>
+          </p>
+          <%= render "state-badge", order: order %>
+        </li>
+      <% end %>
+    </ul>
+    <h2 class="mt-4">Reservations for your cars</h2>
+    <ul class="list-group">
+      <% current_user.orders.each do |order| %>
+        <li class="list-group-item d-flex align-items-center justify-content-between py-3 my-2 bg-white">
+          <p>
+            <%= order.car.name %>
+            <small>From <%= order.start_date.strftime('%m/%d/%y') %> to <%= order.end_date.strftime('%m/%d/%y') %></small>
+          </p>
+          <%= render "state-badge", order: order %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
 </div>

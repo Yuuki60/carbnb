@@ -37,6 +37,15 @@ Car.create(name: "Megane", description: "voiture moyenne", price_per_day: 600, u
 Car.create(name: "Avantador", description: "voiture comme ci comme ça", price_per_day: 400, user: users.sample)
 Car.create(name: "Fiat", description: "voiture si on n'a pas le choix", price_per_day: 200, user: users.sample)
 
+require "open-uri"
+
+file = URI.open("https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/NES-Console-Set.jpg/1200px-NES-Console-Set.jpg")
+article = Article.new(title: "NES", body: "A great console")
+article.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+article.save
+
+
+
 cars = Car.all
 10.times do
   Order.create(

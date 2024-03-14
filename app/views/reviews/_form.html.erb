@@ -1,0 +1,7 @@
+<div class="mb-4">
+  <%= simple_form_for [car, review] do |f| %>
+    <%= f.input :rating, as: :integer %>
+    <%= f.input :comment, as: :text %>
+    <%= f.submit class: "btn btn-primary" %>
+  <% end %>
+</div>

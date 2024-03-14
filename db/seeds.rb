@@ -2,24 +2,31 @@ require 'faker'
 require 'open-uri'
 require 'csv'
 
+Review.destroy_all
 Order.destroy_all
 User.destroy_all
 Car.destroy_all
 
-User.create(
-  first_name: 'Florent',
-  last_name: 'vandroy',
+user = User.new(
+  first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name,
   email: 'test@test.com',
   password: '123456'
 )
+image = URI.open("https://i.pravatar.cc/300")
+user.avatar.attach(io: image, filename: "#{user.email}.jpg")
+user.save
 
 10.times do
-  User.create(
+  image = URI.open("https://i.pravatar.cc/300")
+  user = User.new(
     email: Faker::Internet.email,
     password: 'motdepasse',
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name
   )
+  user.avatar.attach(io: image, filename: "#{user.email}.jpg")
+  user.save
 end
 users = User.all
 
@@ -46,19 +53,37 @@ cars_url.each do |url|
   )
 
   image_url = "https:#{doc.search('table span a img').attr('src').value}"
-  image = URI.open(image_url)
+  image_resized = image_url.gsub("280px", "700px")
+  image = URI.open(image_resized)
   car.new_image.attach(io: image, filename: "#{car.name}.jpg")
 
   car.save
 end
-cars = Car.all
 
-10.times do
-  Order.create(
-    user: users.sample,
-    car: cars.sample,
-    start_date: Faker::Date.backward,
-    end_date: Faker::Date.forward,
-    state: rand(0..2)
-  )
+cars = Car.all
+cars.each do |car|
+  latest_end_date = Date.today
+  5.times do
+    start_date = Faker::Date.between(from: latest_end_date + 1, to: latest_end_date + 5)
+    end_date = Faker::Date.between(from: start_date + 3, to: start_date + 5)
+
+    latest_end_date = end_date
+
+    Order.create(
+      user: users.sample,
+      car: car,
+      start_date: start_date,
+      end_date: end_date,
+      state: rand(0..2)
+    )
+  end
+
+  2.times do
+    Review.create(
+      user: users.sample,
+      car: car,
+      comment: Faker::Lorem.sentence,
+      rating: rand(1..5)
+    )
+  end
 end

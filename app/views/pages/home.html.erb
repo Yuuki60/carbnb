@@ -1,29 +1,43 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url('https://st3.depositphotos.com/4325359/16191/v/450/depositphotos_161918042-stock-illustration-realistic-car-in-the-dark.jpg');">
-  <div class="container text-center py-5">
-    <h1 class="text-white text-shadow">CarBnb Revolutionizing The Future</h1>
-    <p class="text-white text-shadow mb-4">
-      Carbnb connects car owners with renters, offering a personalized,<br>
-      flexible, and cost-effective way to rent vehicles.<br>
-      Experience the future of car rentals today.
-    </p>
-    <a class="btn btn-primary btn-lg custom-button-position" href="cars#index">Go Book a Car</a>
-  </div>
-</div>
-<div class="welcome-message text-center mt-3">
-  <% if current_user %>
-    <h4 class="display">Welcome, <%= current_user.first_name %> <%= current_user.last_name %></h4>
-  <% else %>
-    <p>You are not logged in.</p>
-    <%= link_to 'Log in', new_user_session_path, class: 'btn btn-outline-primary btn-lg' %>
-  </div>
-<% end %>
-<%= render "partials/whyus" %>
-<%= render "partials/testimonials" %>
-<%= render "partials/faq" %>
-<div class="container my-4">
-  <div class="row justify-content-center">
-    <div class="col-lg-8 text-start">
-      <%= render 'partials/search', locals: { cars: @cars } %>
+<div class="banner" style="min-height: 600px; background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url('https://st3.depositphotos.com/4325359/16191/v/450/depositphotos_161918042-stock-illustration-realistic-car-in-the-dark.jpg');">
+  <div class="container my-4">
+    <div class="row">
+      <div class="col-md-6 banner-text">
+        <h1 class="text-white text-shadow">
+          CarBnb Revolutionizing <span style="color: #8A2BE2; font-weight: bold;">The Future</span>
+        </h1>
+        <br>
+        <p class="text-white text-shadow mb-4">
+          <i class="fas fa-users" style="color: #F5A623;"></i>
+          Carbnb connects <strong>car owners</strong> with <strong>renters</strong>, offering a <span style="font-style: italic;">personalized</span>,
+          <i class="fas fa-cogs" style="color: #50B3A2;"></i>
+          <span style="font-style: italic;">flexible</span>, and <span style="color: #4A90E2; font-weight: bold;">cost-effective</span> way to rent vehicles.<br>
+          <i class="fas fa-rocket" style="color: #9B59B6;"></i>
+          Experience the <span style="font-weight: bold; color: #8A2BE2;">future</span> of car rentals today.
+        </p>
+        <a class="btn btn-primary btn-lg custom-button-position" href="cars#index">Go Book a Car</a>
+      </div>
+      <div class="col-md-6">
+        <%= render 'partials/search', locals: { cars: @cars } %>
+      </div>
     </div>
   </div>
 </div>
+<div class="text-center mt-3 py-1">
+  <% if current_user %>
+    <div class="user-welcome">
+      <h4 class="fs-2 text-success">Welcome back, <strong><%= current_user.first_name %> <%= current_user.last_name %></strong>!</h4>
+      <p class="fst-italic">Ready for your next adventure?</p>
+    </div>
+  <% else %>
+    <div class="guest-welcome">
+      <p class="fs-2">Not a member yet?</p>
+      <%= link_to 'Sign up', new_user_registration_path, class: 'btn btn-success btn-lg mx-1' %>
+      <%= link_to 'Log in', new_user_session_path, class: 'btn btn-outline-success btn-lg mx-1' %>
+    </div>
+  <% end %>
+</div>
+<%= render "partials/rent_following_steps" %>
+<%= render "partials/whyus" %>
+<%= render "partials/testimonials" %>
+<hr>
+<%= render "partials/faq" %>

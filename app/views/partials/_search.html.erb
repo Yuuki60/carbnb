@@ -1,5 +1,5 @@
 <div data-controller="search">
-  <%= form_with url: root_path, method: :get, data: { search_target: 'form' }, html: { class:'mb-4' }  do |f| %>
+  <%= form_with url: root_path, method: :get, data: { search_target: 'form' }  do |f| %>
     <%= f.text_field :query, class: "form-control", placeholder:
                      "Type a car title", value: params[:query],
                      data: {

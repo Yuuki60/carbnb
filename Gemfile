@@ -81,3 +81,5 @@ gem "devise", "~> 4.9"
 gem "faker", "~> 3.2"
 
 gem "flatpickr", "~> 4.6"
+
+gem "geocoder", "~> 1.8"

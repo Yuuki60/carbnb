@@ -16,12 +16,21 @@
           <div class="card-body p-3">
             <h1 class="card-title"><%= @car.name %></h1>
             <p class="card-text"><%= @car.description %></p>
+            <div class="d-flex gap-3 mt-2">
+              <span><i class="fa-solid fa-person"></i> 4</span>
+              <span><i class="fa-solid fa-gas-pump"></i> 300 km</span>
+              <span><i class="fa-solid fa-map-pin"></i> <%= @car.location %></span>
+            </div>
           </div>
         </div>
       </div>
       <div class="col-md-4">
         <div class="card bg-white rounded rounded-4">
           <div class="card-body p-3">
+            <div class="w-100 mb-3" style="height: 300px;"
+            data-controller="map"
+            data-map-markers-value="<%= [{ latitude: @car.latitude, longitude: @car.longitude }].to_json %>"
+            data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
             <%= render "orders/form" %>
           </div>
         </div>

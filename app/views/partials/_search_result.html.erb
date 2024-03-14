@@ -1,0 +1,22 @@
+ <% @cars.each do |car| %>
+  <%= link_to car_path(car), class: "text-decoration-none" do %>
+    <div class="col-md-12">
+      <div class="card mb-4">
+        <div class="row">
+          <div class="col-md-4">
+            <%= image_tag(car.new_image, class: 'img-fluid rounded-start') if car.new_image.attached? %>
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title"><%= car.name %></h5>
+              <p class="card-text">
+                <%= car.description %> <br>
+                <small class="text-muted">Dernière mise à jour il y a <%= time_ago_in_words(car.updated_at) %></small>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>

@@ -82,3 +82,4 @@ gem "faker", "~> 3.2"
 
 gem "flatpickr", "~> 4.6"
 gem "pg_search"
+gem "geocoder", "~> 1.8"

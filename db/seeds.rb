@@ -53,12 +53,18 @@ cars_url.each do |url|
 end
 cars = Car.all
 
-10.times do
+latest_end_date = Date.today
+20.times do
+  start_date = Faker::Date.between(from: latest_end_date + 1, to: latest_end_date + 5)
+  end_date = Faker::Date.between(from: start_date + 3, to: start_date + 5)
+
+  latest_end_date = end_date
+
   Order.create(
     user: users.sample,
     car: cars.sample,
-    start_date: Faker::Date.backward,
-    end_date: Faker::Date.forward,
+    start_date: start_date,
+    end_date: end_date,
     state: rand(0..2)
   )
 end

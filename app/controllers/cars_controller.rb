@@ -7,6 +7,16 @@ class CarsController < ApplicationController
     @car = Car.new
   end
 
+  def edit
+    @car = Car.find(params[:id])
+  end
+
+  def update
+    @car = Car.find(params[:id])
+    @car.update(car_params)
+    redirect_to car_path(@car)
+  end
+
   def create
     @car = Car.new(car_params)
     @user = current_user

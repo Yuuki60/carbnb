@@ -3,7 +3,10 @@
     <% if current_user.id == @car.user.id %>
       <div class="mb-5 d-flex justify-content-between align-items-center">
         <p>This is your car.</p>
-        <%= link_to "Delete this car", car_path, class: 'btn btn-danger text-white', data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>
+        <div>
+          <%= link_to "Edit", edit_car_path, class: "btn btn-secondary" %>
+          <%= link_to "Delete this car", car_path, class: 'btn btn-danger text-white', data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>
+        </div>
       </div>
     <% end %>
     <div class="row">

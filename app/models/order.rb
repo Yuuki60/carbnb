@@ -1,6 +1,4 @@
 class Order < ApplicationRecord
-  after_initialize :set_defaults
-
   belongs_to :car
   belongs_to :user
 
@@ -18,10 +16,9 @@ class Order < ApplicationRecord
       "Accepted"
     when 2
       "Declined"
+    when 3
+      "Cancelled"
     end
   end
 
-  def set_defaults
-    self.state = 0
-  end
 end

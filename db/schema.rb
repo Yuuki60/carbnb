@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_13_133055) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_14_082758) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -54,7 +54,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_13_133055) do
   create_table "orders", force: :cascade do |t|
     t.bigint "car_id", null: false
     t.bigint "user_id", null: false
-    t.integer "state"
+    t.integer "state", default: 0
     t.date "start_date"
     t.date "end_date"
     t.datetime "created_at", null: false

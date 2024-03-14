@@ -4,11 +4,16 @@
     <ul class="list-group">
       <% @orders.each do |order| %>
         <li class="list-group-item d-flex align-items-center justify-content-between py-3 my-2 bg-white">
-          <p>
-            <%= order.car.name %>
-            <small>From <%= order.start_date.strftime('%m/%d/%y') %> to <%= order.end_date.strftime('%m/%d/%y') %></small>
-          </p>
-          <%= render "state-badge", order: order %>
+          <div>
+            <%= link_to order.car.name, car_path(order.car) %>
+            <small>From <strong><%= order.start_date.strftime('%m/%d/%y') %></strong> to <strong><%= order.end_date.strftime('%m/%d/%y') %></strong></small>
+            <%= render "state-badge", order: order %>
+          </div>
+          <div>
+            <% if order.state == 0 %>
+              <%= link_to "Cancel my order", cancel_order_path(order), data: { turbo_method: :put, turbo_confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm text-white" %>
+            <% end %>
+          </div>
         </li>
       <% end %>
     </ul>
@@ -16,11 +21,17 @@
     <ul class="list-group">
       <% current_user.orders.each do |order| %>
         <li class="list-group-item d-flex align-items-center justify-content-between py-3 my-2 bg-white">
-          <p>
+          <div>
             <%= order.car.name %>
             <small>From <%= order.start_date.strftime('%m/%d/%y') %> to <%= order.end_date.strftime('%m/%d/%y') %></small>
-          </p>
-          <%= render "state-badge", order: order %>
+            <%= render "state-badge", order: order %>
+          </div>
+          <div>
+            <% if order.state == 0 %>
+              <%= link_to "Decline", decline_order_path(order), data: { turbo_method: :put, turbo_confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm text-white" %>
+              <%= link_to "Accept", accept_order_path(order), data: { turbo_method: :put, turbo_confirm: 'Are you sure?' }, class: "btn btn-success btn-sm" %>
+            <% end %>
+          </div>
         </li>
       <% end %>
     </ul>

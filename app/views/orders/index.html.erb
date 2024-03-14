@@ -29,7 +29,7 @@
           <div>
             <% if order.state == 0 %>
               <%= link_to "Decline", decline_order_path(order), data: { turbo_method: :put, turbo_confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm text-white" %>
-              <%= link_to "Accept", accept_order_path(order), data: { turbo_method: :put, turbo_confirm: 'Are you sure?' }, class: "btn btn-success btn-sm" %>
+              <%= link_to "Accept", accept_order_path(order), data: { turbo_method: :put, turbo_confirm: 'Are you sure?' }, class: "btn btn-success btn-sm text-white" %>
             <% end %>
           </div>
         </li>

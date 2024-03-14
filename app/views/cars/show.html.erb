@@ -14,19 +14,17 @@
         <div class="card bg-white rounded rounded-4">
           <img class="card-img-top rounded-top-4" src="<%= cl_image_path(@car.new_image.key, class: "w-100") %>" alt="Image <%= @car.name %>">
           <div class="card-body p-3">
-            <h1 class="card-title"><%= @car.name %></h1>
+            <h1 class="card-title">
+              <p><%= @car.name %></p>
+              <p>$<%= @car.price_per_day %></p>
+            </h1>
             <p class="card-text"><%= @car.description %></p>
           </div>
         </div>
       </div>
       <div class="col-md-4">
-        <div class="card bg-white rounded rounded-4">
-          <div class="card-body p-3">
-            <%= render "orders/form" %>
-          </div>
-        </div>
+        <%= render "orders/form" %>
       </div>
     </div>
-
   </div>
 </div>

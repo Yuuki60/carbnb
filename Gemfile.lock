@@ -138,6 +138,7 @@ GEM
     flatpickr (4.6.13.1)
     font-awesome-sass (6.5.1)
       sassc (~> 2.0)
+    geocoder (1.8.2)
     globalid (1.2.1)
       activesupport (>= 6.1)
     http-accept (1.7.0)
@@ -327,6 +328,7 @@ DEPENDENCIES
   faker (~> 3.2)
   flatpickr (~> 4.6)
   font-awesome-sass (~> 6.1)
+  geocoder (~> 1.8)
   importmap-rails
   jbuilder
   pg (~> 1.1)

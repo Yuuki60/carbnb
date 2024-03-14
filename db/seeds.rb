@@ -23,7 +23,6 @@ User.create(
 end
 users = User.all
 
-
 cars_url = [
   "https://en.wikipedia.org/wiki/Ford_Transit",
   "https://en.wikipedia.org/wiki/Lamborghini_Aventador",
@@ -37,11 +36,13 @@ cars_url = [
 cars_url.each do |url|
   html = URI.open(url)
   doc = Nokogiri::HTML.parse(html)
+  locations = ['Paris', 'Lille', 'Bordeaux', 'Toulouse', 'Nantes']
 
   car = Car.new(
     name: doc.search('.mw-page-title-main').text,
     price_per_day: rand(100..1000),
-    user: users.sample
+    user: users.sample,
+    location: locations.sample
   )
 
   image_url = "https:#{doc.search('table span a img').attr('src').value}"

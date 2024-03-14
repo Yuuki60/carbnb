@@ -6,7 +6,7 @@
 
 <% car.reviews.each do |review| %>
   <div class="notification">
-    <%# <%= cl_image_tag(review.user.avatar.key, crop: :fill, gravity: :face, class: "avatar-large") %>
+    <%= cl_image_tag(review.user.avatar.key, crop: :fill, gravity: :face, class: "avatar-large") %>
     <div class="notification-content">
       <div class="dflex">
         <% review.rating.to_i.times do %>

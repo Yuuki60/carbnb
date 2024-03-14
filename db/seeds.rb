@@ -6,13 +6,15 @@ Order.destroy_all
 User.destroy_all
 Car.destroy_all
 
-test_user = User.create(
+User.create(
+  first_name: 'Florent',
+  last_name: 'vandroy',
   email: 'test@test.com',
   password: '123456'
 )
 
 10.times do
-  user = User.create(
+  User.create(
     email: Faker::Internet.email,
     password: 'motdepasse',
     first_name: Faker::Name.first_name,

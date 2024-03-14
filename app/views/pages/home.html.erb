@@ -17,58 +17,6 @@
     <%= link_to 'Log in', new_user_session_path, class: 'btn btn-outline-primary btn-lg' %>
   </div>
 <% end %>
-<div class="container my-5">
-  <h2 class="text-center mb-4">Why Choose CarBnb?</h2>
-  <div class="row">
-    <div class="col-md-4 text-center">
-      <i class="fas fa-car fa-3x mb-3"></i>
-      <h4>Variety of Cars</h4>
-      <p>Choose from a wide range of vehicles to fit your needs.</p>
-    </div>
-    <div class="col-md-4 text-center">
-      <i class="fas fa-hand-holding-usd fa-3x mb-3"></i>
-      <h4>Affordable Prices</h4>
-      <p>Competitive pricing to save you money on your journeys.</p>
-    </div>
-    <div class="col-md-4 text-center">
-      <i class="fas fa-users fa-3x mb-3"></i>
-      <h4>Trusted Community</h4>
-      <p>Rent cars from verified owners within a trusted community.</p>
-    </div>
-  </div>
-</div>
-<div class="container text-center my-5">
-  <div class="row">
-    <div class="col-md-6">
-      <div class="testimonial">
-        <p class="lead">"Amazing service! Renting was smooth and the car was perfect for our road trip."</p>
-        <p>- Daniele Guasco</p>
-      </div>
-    </div>
-    <div class="col-md-6">
-      <div class="testimonial">
-        <p class="lead">"Found the perfect rental for my budget. The process was straightforward and hassle-free."</p>
-        <p>- Florent Vandroy</p>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="container my-5">
-  <h2 class="text-center mb-4">Frequently Asked Questions</h2>
-  <div id="faqAccordion">
-    <div class="card">
-      <div class="card-header" id="headingOne">
-        <h5 class="mb-0">
-          <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-            How does CarBnb work?
-          </button>
-        </h5>
-      </div>
-      <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#faqAccordion">
-        <div class="card-body">
-          CarBnb connects car owners with people looking to rent vehicles for short periods or long periods...
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+<%= render "partials/whyus" %>
+<%= render "partials/testimonials" %>
+<%= render "partials/faq" %>

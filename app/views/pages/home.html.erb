@@ -2,21 +2,27 @@
   <div class="container my-4">
     <div class="row">
       <div class="col-md-6 banner-text">
-        <h1 class="text-white text-shadow">
+        <h1 data-aos="fade-right" class="text-white text-shadow">
           CarBnb Revolutionizing <span style="color: #8A2BE2; font-weight: bold;">The Future</span>
         </h1>
         <br>
-        <p class="text-white text-shadow mb-4">
-          <i class="fas fa-users" style="color: #F5A623;"></i>
-          Carbnb connects <strong>car owners</strong> with <strong>renters</strong>, offering a <span style="font-style: italic;">personalized</span>,
-          <i class="fas fa-cogs" style="color: #50B3A2;"></i>
-          <span style="font-style: italic;">flexible</span>, and <span style="color: #4A90E2; font-weight: bold;">cost-effective</span> way to rent vehicles.<br>
-          <i class="fas fa-rocket" style="color: #9B59B6;"></i>
-          Experience the <span style="font-weight: bold; color: #8A2BE2;">future</span> of car rentals today.
+        <p class="mb-4">
+          <div data-aos="fade-right" class="text-white text-shadow" data-aos-delay="500">
+            <i class="fas fa-users" style="color: #F5A623;"></i>
+            Carbnb connects <strong>car owners</strong> with <strong>renters</strong>, offering a <span style="font-style: italic;">personalized</span>,
+          </div>
+          <div data-aos="fade-right" class="text-white text-shadow" data-aos-delay="1000">
+            <i class="fas fa-cogs" style="color: #50B3A2;"></i>
+            <span style="font-style: italic;">flexible</span>, and <span style="color: #4A90E2; font-weight: bold;">cost-effective</span> way to rent vehicles.<br>
+          </div>
+          <div data-aos="fade-right" class="text-white text-shadow" data-aos-delay="1500">
+            <i class="fas fa-rocket" style="color: #9B59B6;"></i>
+            Experience the <span style="font-weight: bold; color: #8A2BE2;">future</span> of car rentals today.
+          </div>
         </p>
-        <a class="btn btn-primary btn-lg custom-button-position" href="cars#index">Discover all the Cars</a>
+        <a class="btn btn-primary btn-lg custom-button-position" data-aos="fade-in" data-aos-delay="2000" href="cars#index">Discover all the Cars</a>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-6" data-aos="fade-in" data-aos-delay="2000" data-aos-duration="2000">
         <%= render 'partials/search', locals: { cars: @cars } %>
       </div>
     </div>
@@ -24,7 +30,7 @@
 </div>
 <div class="text-center mt-3 py-1">
   <% if current_user %>
-    <div class="user-welcome">
+    <div class="user-welcome", data-aos="zoom-in">
       <h4 class="fs-2 text-success">Welcome back, <strong><%= current_user.first_name %> <%= current_user.last_name %></strong>!</h4>
       <p class="fst-italic">Ready for your next adventure?</p>
       <%= image_tag "car-icon.png", width: 80 %>

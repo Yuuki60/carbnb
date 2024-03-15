@@ -27,7 +27,7 @@
     <div class="user-welcome">
       <h4 class="fs-2 text-success">Welcome back, <strong><%= current_user.first_name %> <%= current_user.last_name %></strong>!</h4>
       <p class="fst-italic">Ready for your next adventure?</p>
-      <%= cl_image_tag 'car-icon_s4jrsq', width: 80 %>
+      <%= image_tag "car-icon.png", width: 80 %>
     </div>
   <% else %>
     <div class="guest-welcome">

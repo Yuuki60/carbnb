@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   put '/orders/:id/decline', to: 'orders#decline_order', as: 'decline_order'
   resources :cars do
     resources :orders, only: [:create]
+    resources :reviews, only: [:create, :destroy]
   end
 end

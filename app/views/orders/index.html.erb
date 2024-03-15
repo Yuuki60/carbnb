@@ -22,7 +22,7 @@
       <% current_user.orders.each do |order| %>
         <li class="list-group-item d-flex align-items-center justify-content-between py-3 my-2 bg-white">
           <div>
-            <%= order.car.name %>
+            <%= link_to order.car.name, car_path(order.car) %>
             <small>From <%= order.start_date.strftime('%m/%d/%y') %> to <%= order.end_date.strftime('%m/%d/%y') %></small>
             <%= render "state-badge", order: order %>
           </div>

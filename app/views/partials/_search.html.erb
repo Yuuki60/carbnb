@@ -1,0 +1,18 @@
+<div data-controller="search">
+  <%= form_with url: root_path, method: :get, data: { search_target: 'form', action: "submit->search#update" }  do |f| %>
+    <div class="d-flex">
+      <%= f.text_field :query, data: { search_target: "input" }, class: "form-control", placeholder: "Search a car by name, location, ...", value: params[:query] %>
+      <div class="d-flex" style="width:45%">
+        <%= f.date_field :startdate, class: "form-control", data: { search_target: "startdate" } %>
+        <%= f.date_field :enddate, class: "form-control", data: { search_target: "enddate" } %>
+      </div>
+      <%= button_tag(type: 'submit', class: "btn btn-primary") do %>
+        <i class="fa-solid fa-search"></i>
+      <% end %>
+    </div>
+  <% end %>
+  <div class="container">
+    <div class="row" data-search-target="list">
+    </div>
+  </div>
+</div>

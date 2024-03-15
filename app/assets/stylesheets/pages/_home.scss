@@ -25,3 +25,72 @@
   position: relative;
   top: 70px;
 }
+
+.p-0 {
+  .card {
+    transition: all 0.2s ease-in-out;
+
+      &:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      }
+    }
+}
+
+.checked {
+  color: orange;
+}
+
+.icon-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #f8f9fa;
+  color: #4A90E2; /* Blue color for the icon, can change for each icon */
+}
+
+.icon-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+
+  background-color:  rgb(248, 249, 250);
+  color: #4A90E2;
+}
+.text-box {
+  border: 1px solid  rgb(248, 249, 250);
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  margin-top: -15px;
+}
+
+.text-shadow {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+#faqAccordion .accordion-button {
+  background-color: #f8f9fa; /* Light grey background */
+  color: #333; /* Dark text for contrast */
+  font-weight: bold; /* Make the question titles bold */
+}
+
+#faqAccordion .accordion-body {
+  background-color: #fff; /* White background for the content */
+}
+
+#faqAccordion .accordion-item {
+  border: none; /* Remove borders for a cleaner look */
+}
+
+#faqAccordion .accordion-button:not(.collapsed) {
+  color: #4A90E2; /* Highlight color for active item */
+  background-color: #e9ecef; /* Slightly darker background for active item */
+}

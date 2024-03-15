@@ -10,7 +10,7 @@ class OrdersController < ApplicationController
     @order.user = current_user
     @order.car = Car.find(params[:car_id])
     if @order.save
-      redirect_to orders_path
+      redirect_to orders_path, notice: 'Order was successfully created.'
     else
       render :new, status: :unprocessable_entity
     end
@@ -18,17 +18,17 @@ class OrdersController < ApplicationController
 
   def cancel_order
     @order.update!(state: 3)
-    redirect_to orders_path
+    redirect_to orders_path, notice: 'Order was successfully cancelled.'
   end
 
   def accept_order
     @order.update!(state: 1)
-    redirect_to orders_path
+    redirect_to orders_path, notice: 'Order was successfully accepted.'
   end
 
   def decline_order
     @order.update!(state: 2)
-    redirect_to orders_path
+    redirect_to orders_path, notice: 'Order was successfully denied.'
   end
 
   private

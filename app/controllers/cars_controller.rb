@@ -1,6 +1,7 @@
 class CarsController < ApplicationController
   def index
     @cars = Car.all
+    sort_cars if params[:sort].present?
   end
 
   def new
@@ -37,6 +38,19 @@ class CarsController < ApplicationController
   end
 
   private
+
+  def sort_cars
+    case params[:sort]
+    when 'price_asc'
+      @cars = @cars.order(price_per_day: :asc)
+    when 'price_desc'
+      @cars = @cars.order(price_per_day: :desc)
+    when 'location_asc'
+      @cars = @cars.order(location: :asc)
+    when 'location_desc'
+      @cars = @cars.order(location: :desc)
+    end
+  end
 
   def car_params
     params.require(:car).permit(:name, :description, :text, :price_per_day, :new_image, :location)

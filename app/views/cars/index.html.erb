@@ -4,6 +4,24 @@
       <h1>Car lists</h1>
       <%= link_to "Add a new car", new_car_path, class: 'btn btn-primary' %>
     </div>
+    <div class="col-12 mb-4">
+      <form action="<%= cars_path %>" method="get" class="row g-3 justify-content-end mt-3">
+        <div class="col-auto">
+          <label class="col-form-label">Sort by:</label>
+        </div>
+        <div class="col-auto">
+          <select class="form-select" id="sort" name="sort">
+            <option value="price_asc">Price: Low to High</option>
+            <option value="price_desc">Price: High to Low</option>
+            <option value="location_asc">City: A to Z</option>
+            <option value="location_desc">City: Z to A</option>
+          </select>
+        </div>
+        <div class="col-auto">
+          <button type="submit" class="btn btn-primary">Apply</button>
+        </div>
+      </form>
+    </div>
     <% @cars.each do |car| %>
       <div class="col-12 col-lg-4">
         <%= link_to car_path(car), class:"text-decoration-none text-black" do %>

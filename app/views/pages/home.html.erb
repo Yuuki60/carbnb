@@ -14,7 +14,7 @@
           <i class="fas fa-rocket" style="color: #9B59B6;"></i>
           Experience the <span style="font-weight: bold; color: #8A2BE2;">future</span> of car rentals today.
         </p>
-        <a class="btn btn-primary btn-lg custom-button-position" href="cars#index">Go Book a Car</a>
+        <a class="btn btn-primary btn-lg custom-button-position" href="cars#index">Discover all the Cars</a>
       </div>
       <div class="col-md-6">
         <%= render 'partials/search', locals: { cars: @cars } %>
@@ -27,11 +27,12 @@
     <div class="user-welcome">
       <h4 class="fs-2 text-success">Welcome back, <strong><%= current_user.first_name %> <%= current_user.last_name %></strong>!</h4>
       <p class="fst-italic">Ready for your next adventure?</p>
+      <%= cl_image_tag 'car-icon_s4jrsq', width: 80 %>
     </div>
   <% else %>
     <div class="guest-welcome">
       <p class="fs-2">Not a member yet?</p>
-      <%= link_to 'Sign up', new_user_registration_path, class: 'btn btn-success btn-lg mx-1' %>
+      <%= link_to 'Sign up', new_user_registration_path, class: 'btn btn-outline-success btn-lg mx-1' %>
       <%= link_to 'Log in', new_user_session_path, class: 'btn btn-outline-success btn-lg mx-1' %>
     </div>
   <% end %>

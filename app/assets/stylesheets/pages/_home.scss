@@ -23,7 +23,7 @@
 
 .custom-button-position {
   position: relative;
-  top: 70px;
+  top: 100px;
 }
 
 .p-0 {
@@ -32,7 +32,7 @@
 
       &:hover {
         transform: translateY(-1px);
-        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.5);
       }
     }
 }
@@ -49,7 +49,7 @@
   height: 100px;
   border-radius: 50%;
   background-color: #f8f9fa;
-  color: #4A90E2; /* Blue color for the icon, can change for each icon */
+  color: #4A90E2;
 }
 
 .icon-circle {
@@ -69,7 +69,7 @@
   border-radius: 8px;
   background-color: #fff;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  margin-top: -15px;
+  margin-top: -8px;
 }
 
 .text-shadow {
@@ -77,20 +77,25 @@
 }
 
 #faqAccordion .accordion-button {
-  background-color: #f8f9fa; /* Light grey background */
-  color: #333; /* Dark text for contrast */
-  font-weight: bold; /* Make the question titles bold */
+  background-color: #f8f9fa;
+  color: #333;
+  font-weight: bold;
 }
 
 #faqAccordion .accordion-body {
-  background-color: #fff; /* White background for the content */
+  background-color: #fff;
 }
 
 #faqAccordion .accordion-item {
-  border: none; /* Remove borders for a cleaner look */
+  border: none;
 }
 
 #faqAccordion .accordion-button:not(.collapsed) {
-  color: #4A90E2; /* Highlight color for active item */
-  background-color: #e9ecef; /* Slightly darker background for active item */
+  color: #4A90E2;
+  background-color: #e9ecef;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter: invert(100%);
 }
